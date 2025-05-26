@@ -34,6 +34,6 @@ commitable_code_suggestions = true
 demand_code_suggestions_self_review = true
 summarize = false
 
-# [vertexai]
-# vertex_project = "haru256-pr-agent"
-# vertex_location = ""
+[vertexai]
+vertex_project = "haru256-pr-agent"
+vertex_location = ""
