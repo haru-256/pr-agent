@@ -24,9 +24,6 @@ jobs:
           workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }} # 出力値を登録
           service_account: ${{ vars.GCP_SA_EMAIL }} # 出力値を登録
 
-      - name: "gcloud info"
-        run: gcloud info
-
       - name: "PR Agent action step"
         id: pragent
         uses: qodo-ai/pr-agent@main
