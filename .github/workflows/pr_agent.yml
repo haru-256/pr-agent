@@ -12,6 +12,7 @@ jobs:
       issues: write
       pull-requests: write
       contents: write
+      id-token: write
     name: "Run pr agent on every pull request, respond to user comments"
     steps:
       - name: "Checkout code"
@@ -21,8 +22,8 @@ jobs:
         id: auth
         uses: google-github-actions/auth@v2
         with:
-          workload_identity_provider: ${{ secrets.GCP_WIF_PROVIDER }} # 出力値を登録
-          service_account: ${{ secrets.GCP_SA_EMAIL }} # 出力値を登録
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }} # 出力値を登録
+          service_account: ${{ vars.GCP_SA_EMAIL }} # 出力値を登録
 
       - name: "gcloud info"
         run: gcloud info
