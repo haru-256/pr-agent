@@ -2,7 +2,6 @@ name: PR Agent
 on:
   pull_request:
     types: [opened, reopened, ready_for_review]
-  push:
 jobs:
   pr_agent_job:
     if: ${{ github.event.sender.type != 'Bot' }}
@@ -28,12 +27,8 @@ jobs:
       - name: "gcloud info"
         run: gcloud info
 
-      # - name: "PR Agent action step"
-      #   id: pragent
-      #   uses: qodo-ai/pr-agent@main
-      #   env:
-      #     OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     vertexai.vertex_project: ${{ secrets.VERTEX_PROJECT }}
-      #     vertexai.vertex_location: ""
-      #     GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+      - name: "PR Agent action step"
+        id: pragent
+        uses: qodo-ai/pr-agent@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
